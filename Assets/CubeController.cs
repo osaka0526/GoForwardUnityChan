@@ -19,6 +19,7 @@ public class CubeController : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+
         //AudioSourceのコンポーネントを取得する
         this.audioSource = GetComponent<AudioSource>();
     }
@@ -42,16 +43,13 @@ public class CubeController : MonoBehaviour
         //キューブ同士が積み重なる時効果音を鳴らす
         if (other.gameObject.tag == "Cube")
         {
-            AudioSource.PlayClipAtPoint(Block, transform.position);
+            audioSource.PlayOneShot(Block);
         }
 
         //キューブが地面に接触する時効果音を鳴らす
         if (other.gameObject.tag == "Ground")
         {
-            AudioSource.PlayClipAtPoint(Block, transform.position);
+            audioSource.PlayOneShot(Block);
         }
     }
 }
-
-
-
